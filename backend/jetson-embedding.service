@@ -1,0 +1,14 @@
+[Unit]
+Description=Jetson Embedding API Service
+After=network.target
+
+[Service]
+User=mx
+WorkingDirectory=/home/mx/jetsonnodock
+Environment="PATH=/home/mx/jetsonnodock/fastapi-env/bin"
+ExecStart=/home/mx/jetsonnodock/fastapi-env/bin/python backend/main.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target 
